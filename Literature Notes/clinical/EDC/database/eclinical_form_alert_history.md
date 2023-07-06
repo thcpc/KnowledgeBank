@@ -1,0 +1,6 @@
+[[eclinical_study_site]]
+[[eclinical_subject]]
+[[eclinical_odm_studyevent]]
+[[eclinical_crf_form]]
+[[eclinical_form_alert_config]]
+[[eclinical_subject_phase]]

@@ -1,0 +1,6 @@
+[[eclinical_subject]]
+[[eclinical_crf_form]]
+[[eclinical_subject_form]]
+[[eclinical_subject_ig]]
+[[eclinical_subject_form]]
+[[eclinical_odm_studyevent]]

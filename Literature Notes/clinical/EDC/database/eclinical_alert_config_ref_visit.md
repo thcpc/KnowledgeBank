@@ -1,0 +1,5 @@
+[[eclinical_form_alert_config]]
+[[eclinical_odm_studyevent]]
+[[eclinical_crf_cycle]]
+[[eclinical_crf_folder]]
+[[eclinical_crf_version]]

@@ -1,0 +1,6 @@
+[[eclinical_subject_item]]
+[[eclinical_subject_ig]]
+[[eclinical_subject_form]]
+[[eclinical_subject_visit]]
+[[eclinical_subject]]
+[[eclinical_study_site]]
