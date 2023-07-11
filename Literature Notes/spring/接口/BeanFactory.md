@@ -3,10 +3,10 @@
  Bean容器，获取Bean
 扩展的行为
 1. [[ConfigurableListableBeanFactory]]
-2. HierarchicalBeanFactory
+2. [[HierarchicalBeanFactory]]
 3. [[ListableBeanFactory]]
 4. [[AutowireCapableBeanFactory]]
-5. ConfigurableBeanFactory
+5. [[ConfigurableBeanFactory]]
 ```java
 public interface BeanFactory {  
   

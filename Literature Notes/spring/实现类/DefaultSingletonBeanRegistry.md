@@ -1,4 +1,4 @@
-类型：实现Class  
+ 类型：实现Class  
 实现接口：[[SingletonBeanRegistry]]
 实现内容：
 实现了Bean的单态获取
