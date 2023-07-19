@@ -1,3 +1,4 @@
+#interface
 类型：接口
 定义行为：
 扩展了Bean Factory 增加 Bean Factory可配置话的扩展属性，比如 增加BeanPostProcessor,
@@ -13,3 +14,9 @@ public interface ConfigurableBeanFactory extends SingletonBeanRegistry, Hierarch
   
 }
 ```
+
+扩展行文
+[[ConfigurableListableBeanFactory]]
+
+抽象实现
+[[AbstractBeanFactory]]

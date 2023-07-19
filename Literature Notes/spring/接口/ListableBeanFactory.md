@@ -1,3 +1,4 @@
+#interface
 类型: 接口
 定义行为:
 扩展了[[BeanFactory]]的基本行为，扩充了BeanFactory可以获取多个Bean的行为
@@ -8,3 +9,6 @@ public interface ListableBeanFactory extends BeanFactory{
     String[] getBeanDefinitionNames();  
 }
 ```
+
+扩展行为
+[[ConfigurableListableBeanFactory]]

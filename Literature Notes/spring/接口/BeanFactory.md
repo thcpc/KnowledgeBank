@@ -1,12 +1,13 @@
+#interface
+
 类型：接口
 定义行为:
  Bean容器，获取Bean
 扩展的行为
-1. [[ConfigurableListableBeanFactory]]
-2. [[HierarchicalBeanFactory]]
-3. [[ListableBeanFactory]]
-4. [[AutowireCapableBeanFactory]]
-5. [[ConfigurableBeanFactory]]
+1. [[HierarchicalBeanFactory]]
+2. [[ListableBeanFactory]]
+3. [[AutowireCapableBeanFactory]]
+
 ```java
 public interface BeanFactory {  
   
