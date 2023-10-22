@@ -348,3 +348,134 @@ package tinny.springframework.beans.factory.support{
 }
 @enduml
 ```
+
+# 需求5. 06
+1. 对Bean的初始化过程使用配置文件，配置化
+![[截屏2023-10-23 00.38.06.png]]
+
+
+```plantuml
+@startuml
+package tinny.springframework.beans.core.io{
+	interface Resource{
+		{method} InputStream getInputStream();
+	}
+	class FileSystemResource implements Resource{
+		{method} InputStream getInputStream();
+	}
+
+	class ClassPathResource implements Resource{
+		{method} InputStream getInputStream();
+	}
+
+	interface ResourceLoader{
+		{method} Resource getResource(String location);
+	}
+
+	class DefalutResourceLoader implements ResourceLoader{
+		{method} Resource getResource(String location);
+	}
+}
+package tinny.springframework.beans.factory{
+	interface BeanFactory{
+		Object getBean(String beanName)
+	}
+	class PropertyValue{
+		-String name
+		-Object value
+	}
+
+	class PropertyValues{
+		-List propertyValues
+		{method} addProperty(Property proertyValue)
+		{method} getPropertyValues()
+		
+	}
+
+}
+
+
+
+package tinny.springframework.beans.factory.config{
+	
+	interface SingletonBeanRegistry {  
+	    Object getSingleton(String beanName)  
+	}
+	class BeanDefinition{
+		-Class clazz
+	}
+
+}
+
+
+package tinny.springframework.beans.factory.support{
+	interface InstantiationStrategy{
+		Object instantiate(BeanDefinition beanDefinition, Object[] args)
+	}
+	
+	interface BeanDefinitionRegistry{
+		void registerBeanDefintion(String beanName, BeanDefinition beanDefinition)
+	}
+
+
+	abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry implements tinny.springframework.beans.factory.BeanFactory{
+		{field} Object getBean(String beanName)
+		{abstract} {method} BeanDefinition getBeanDefinition(String beanName)
+		{abstract} {method} Object createBean(BeanDefintion beanDefinition)
+	}
+
+	
+	abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory{
+		{field} InstantiationStrategy instantiationStrategy
+		{method} Object createBean(BeanDefintion beanDefinition)
+		{method} Object createBeanInstance(String beanName, BeanDefinition beanDefinition, Object[] args)
+	}
+
+	class CglibSubclassingInstantiationStrategy implements InstantiationStrategy{
+		Object instantiate(BeanDefinition beanDefinition, Object[] args)
+	}
+
+	class SimpleInstantiationStrategy implements InstantiationStrategy{
+		Object instantiate(BeanDefinition beanDefinition, Object[] args)
+	}
+
+	class DefaulitListableBeanFactory extends AbstractAutowireCapableBeanFactory implements BeanDefinitionRegistry{
+		{field} -HashMap<String,BeanDefinition> beanDefinitionMaps
+		{method} void registerBeanDefintion(String beanName, BeanDefinition beanDefinition)
+		{method} BeanDefinition getBeanDefinition(String beanName)
+	}
+
+	class DefaultSingletonBeanRegistry implements tinny.springframework.beans.factory.config.SingletonBeanRegistry{  
+	    {field} #HashMap<String,Object> beans    
+	    {method} Object getSingleton(String beanName)
+	    {method} void addSingleton(String beanName, Object bean)
+	}
+	tinny.springframework.beans.factory.config.BeanDefinition o-- DefaulitListableBeanFactory
+	PropertyValue o-- PropertyValues
+	tinny.springframework.beans.factory.config.BeanDefinition --> PropertyValues: use
+	AbstractAutowireCapableBeanFactory --> InstantiationStrategy: use
+
+	note top of BeanFactory : 抽象出获取getBean的方法，解耦获取过程
+	note left of SingletonBeanRegistry : 抽象定义Bean得方法，解耦定义Bean的过程
+	note top of DefaultSingletonBeanRegistry
+		真正存放 <font color="Red">Bean对象</font>的对象
+	end note
+	
+	note left of BeanDefinitionRegistry: 抽象注册BeanDefintion的方法，解耦 注册的过程
+	
+	note left of AbstractBeanFactory
+		模版模式，定义了getBean的过程，
+			1.单态获取Bean - getSingleton(String beanName)
+			2.如果 Bean 不存在，则 获取BeanDefinition - getBeanDefinition(String beanName)
+			3.创建Bean， 并单例保存 - createBean(BeanDefintion beanDefinition)
+	end note
+	note left of AbstractAutowireCapableBeanFactory
+	 实现了 createBean
+	 注入了属性和依赖对象
+	end note
+	note left of DefaulitListableBeanFactory
+		实现了 registerBeanDefintion 注册BeanDefintion, 存放 <font color="Red">BeanDefinitions</font>
+	end note
+}
+@enduml
+```
