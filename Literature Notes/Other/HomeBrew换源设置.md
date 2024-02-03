@@ -14,10 +14,14 @@ $ git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.us
 
 # zsh 替换 brew bintray 镜像
 $ echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' >> ~/.zshrc
+# 替换下载# formula.jws.json
+$ echo 'export HOMEBREW_API_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles/api' >> ~/.zshrc
 $ source ~/.zshrc
 
 # bash 替换 brew bintray 镜像
 $ echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' >> ~/.bash_profile
+# 替换下载# formula.jws.json
+$ echo 'export HOMEBREW_API_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles/api' >> ~/.bash_profile
 $ source ~/.bash_profile
 
 # 刷新源
@@ -34,10 +38,14 @@ $ git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.tu
 
 # zsh 替换 brew bintray 镜像
 $ echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles' >> ~/.zshrc
+$ echo 'export HOMEBREW_API_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api' >> ~/.zshrc
 $ source ~/.zshrc
 
 # bash 替换 brew bintray 镜像
 $ echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles' >> ~/.bash_profile
+# 替换下载# formula.jws.json
+$ echo 'export HOMEBREW_API_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api' >> ~/.bash_profile
+
 $ source ~/.bash_profile
 
 # 刷新源
