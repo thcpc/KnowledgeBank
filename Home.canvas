@@ -1,0 +1,10 @@
+{
+	"nodes":[
+		{"id":"b81a5bb7316824f1","type":"text","text":"搜索栏\n```dataview\nTable tags, descrption FROM #python \n```\n","x":-640,"y":-1080,"width":1250,"height":280,"color":"3"},
+		{"id":"430745f8baf8d538","type":"text","text":"编程","x":-640,"y":-660,"width":250,"height":60,"color":"4"},
+		{"id":"24db4d99331ed436","type":"text","text":"武术","x":-320,"y":-660,"width":250,"height":60,"color":"6"},
+		{"id":"ebaf14d1d134dc94","type":"text","text":"电脑操作","x":0,"y":-660,"width":250,"height":60,"color":"1"},
+		{"id":"d064cdd628b117e9","type":"text","text":"其它","x":320,"y":-660,"width":250,"height":60,"color":"2"}
+	],
+	"edges":[]
+}
