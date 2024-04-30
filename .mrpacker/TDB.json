@@ -1,0 +1,1 @@
+{"MYSql": {"1": {"alias": "", "host": "test-01.c9qe4y0vrvda.rds.cn-northwest-1.amazonaws.com.cn", "port": 3306, "user": "root", "pwd": "HUlWHzVM1J1K0QO1yhhV", "database": "PengChengChenLT"}}, "Environment": {"1": {"alias": "", "eclinical40-document": "D:\\aws\\eclinical40-document\\release\\uat-us", "mysql-bin": "C:\\mysql-8.0.31-winx64\\bin"}}}
